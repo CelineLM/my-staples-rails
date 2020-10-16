@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_16_102514) do
+ActiveRecord::Schema.define(version: 2020_10_16_103347) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,12 +36,29 @@ ActiveRecord::Schema.define(version: 2020_10_16_102514) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "my_staples", force: :cascade do |t|
+    t.bigint "staple_id", null: false
+    t.bigint "quantity_id", null: false
+    t.bigint "grocery_list_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["grocery_list_id"], name: "index_my_staples_on_grocery_list_id"
+    t.index ["quantity_id"], name: "index_my_staples_on_quantity_id"
+    t.index ["staple_id"], name: "index_my_staples_on_staple_id"
+  end
+
   create_table "non_staples", force: :cascade do |t|
     t.string "name"
     t.bigint "grocery_list_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["grocery_list_id"], name: "index_non_staples_on_grocery_list_id"
+  end
+
+  create_table "quantities", force: :cascade do |t|
+    t.string "value"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "staples", force: :cascade do |t|
@@ -69,6 +86,9 @@ ActiveRecord::Schema.define(version: 2020_10_16_102514) do
   end
 
   add_foreign_key "grocery_lists", "groups"
+  add_foreign_key "my_staples", "grocery_lists"
+  add_foreign_key "my_staples", "quantities"
+  add_foreign_key "my_staples", "staples"
   add_foreign_key "non_staples", "grocery_lists"
   add_foreign_key "staples", "categories"
   add_foreign_key "users", "groups"
