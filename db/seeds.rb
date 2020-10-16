@@ -35,12 +35,12 @@ puts 'Staples created'
 
 # Quantities
 
-puts '--Cleaning quatities'
+puts '--Cleaning quantities'
 Quantity.destroy_all
 puts 'quantities cleaned'
 
 puts '// Creating quantities...'
 full = Quantity.create!(value: 'Full')
 almost_empty = Quantity.create!(value: 'Almost empty')
-empty = Quantity.create!(value: 'Empty)
+empty = Quantity.create!(value: 'Empty')
 puts "Quantities created"
