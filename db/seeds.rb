@@ -31,3 +31,16 @@ frozen_berries = Staple.create!(name: 'Frozen Berries', category: freezer)
 toilet_paper = Staple.create!(name: 'Toilet Paper', category: hygiene)
 toothpaste = Staple.create!(name: 'Toothpaste', category: hygiene)
 puts 'Staples created'
+
+
+# Quantities
+
+puts '--Cleaning quatities'
+Quantity.destroy_all
+puts 'quantities cleaned'
+
+puts '// Creating quantities...'
+full = Quantity.create!(value: 'Full')
+almost_empty = Quantity.create!(value: 'Almost empty')
+empty = Quantity.create!(value: 'Empty)
+puts "Quantities created"
