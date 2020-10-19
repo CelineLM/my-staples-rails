@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  resources :my_staples, only: [:index, :create, :destroy]
+  resources :staples, only: [:new, :create]
+  resources :groups, only: [:new, :create, :edit, :update] do
+    resources :grocery_list, only: [:new, :create]
+  end
+  resources :grocery_list, only: [:show] do
+      resources :non_staples, only: [:create]
+  end
+  resources :non_staples, only: [:destroy]
 end
