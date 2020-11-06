@@ -46,36 +46,39 @@
 # puts "Quantities created"
 
 
-Groups
+# Groups
 
-puts '--Cleaning Groups'
-Group.destroy_all
-puts 'Groups cleaned'
+# puts '--Cleaning Groups'
+# Group.destroy_all
+# puts 'Groups cleaned'
 
-puts '// Creating Groups...'
-dupond = Group.create!(name: 'Dupond')
-puts "Groups created"
-
-
-Users
-
-puts '--Cleaning Users'
-User.destroy_all
-puts 'Users cleaned'
-
-puts '// Creating Users...'
-emilie_dupond = User.create!(username: 'Emilie-dup', email: 'Emilie@gmail.com', password: 'Emilie123', group: dupond, group_admin: true )
-jean_dupond = User.create!(username: 'Jean-dup', email: 'jean@gmail.com', password: 'Jean123', group: dupond, group_admin: false )
-puts "Users created"
+# puts '// Creating Groups...'
+# dupond = Group.create!(name: 'Dupond')
+# thomas = Group.create!(name: 'Thomas')
+# puts "Groups created"
 
 
-Users
+# Users
 
-puts '--Cleaning Grocery Lists'
-GroceryList.destroy_all
-puts 'Grocery Lists cleaned'
+# puts '--Cleaning Users'
+# User.destroy_all
+# puts 'Users cleaned'
 
-puts '// Creating Grocery Lists...'
-dupond_list = GroceryList.create!(name: 'Dupond', group: dupond)
-puts "Grocery Lists created"
+# puts '// Creating Users...'
+# emilie_dupond = User.create!(username: 'Emilie-dup', email: 'Emilie@gmail.com', password: 'Emilie123', group: dupond, group_admin: true )
+# jean_dupond = User.create!(username: 'Jean-dup', email: 'jean@gmail.com', password: 'Jean123', group: dupond, group_admin: false )
+# marie_thomas = User.create(username: 'Marie Thomas', email: 'marie@gmail.com', password: 'Marie123', group: thomas, group_admin: true )
+# puts "Users created"
+
+
+# Grocery Lists
+
+# puts '--Cleaning Grocery Lists'
+# GroceryList.destroy_all
+# puts 'Grocery Lists cleaned'
+
+# puts '// Creating Grocery Lists...'
+# dupond_list = GroceryList.create!(name: 'Dupond', group: dupond)
+# thomas_list = GroceryList.create!(name: 'Thomas', group: thomas)
+# puts "Grocery Lists created"
 
