@@ -2,6 +2,7 @@ class MyStaplesController < ApplicationController
   def index
     @grocery_list = current_user.group.grocery_lists.first
     @my_staples = @grocery_list.my_staples
+    authorize @my_staples
   end
 
   def create

@@ -1,0 +1,8 @@
+<h1>Make a new staple</h1>
+
+<%= form_for(@staple) do |f| %>
+  <%= f.collection_select :category_id, Category.all, :id, :name %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.submit %>
+<% end %>

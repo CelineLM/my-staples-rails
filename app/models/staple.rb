@@ -1,4 +1,5 @@
 class Staple < ApplicationRecord
   belongs_to :category
-  validates :name, :category, presence: true
+  validates :name, presence: true, uniqueness: true
+  validates :category, presence: true
 end
