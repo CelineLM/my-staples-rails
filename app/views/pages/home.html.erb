@@ -1,7 +1,7 @@
 
 <div>
     <% if user_signed_in? %>
-      <%= link_to "MY STAPLES", my_staples_path %>
+      <%= link_to "MY STAPLES", grocery_list_my_staples_path(@grocery_list) %>
       <%= link_to "MY GROCERY LIST", grocery_list_path(@grocery_list) %>
       <%= link_to "Log out", destroy_user_session_path, method: :delete %>
     <% else %>

@@ -1,0 +1,6 @@
+<h1>My Staples</h1>
+
+<% @my_staples.each do |my_staple| %>
+  <p><%= my_staple.staple.name %>
+  <%= my_staple.quantity.value %></p>
+<% end %>
