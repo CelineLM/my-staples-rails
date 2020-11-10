@@ -8,6 +8,13 @@
     <% end %>
 <% end %>
 
-<h2>Add a staple to your list</h2>
+<h3>Add a staple to your list</h3>
+<%= form_for [@grocery_list, @my_staple] do |f| %>
+  <%= f.label :staple %>
+  <%= f.collection_select :staple_id, Staple.all, :id, :name %>
+  <%= f.label :quantity %>
+  <%= f.collection_select :quantity_id, Quantity.all, :id, :value %>
+  <%= f.submit %>
+<% end %>
 
 <%= link_to "Add a new staple to the library", new_staple_path %>
