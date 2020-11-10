@@ -6,8 +6,6 @@ class StaplesController < ApplicationController
 
   def create
     @staple = Staple.new(staple_params)
-    @category = Category.find(params[:category_id])
-    @staple.category = @category
     authorize @staple
     if @staple.save
       @grocery_list = current_user.group.grocery_lists.first
