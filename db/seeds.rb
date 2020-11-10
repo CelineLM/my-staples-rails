@@ -2,11 +2,38 @@
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 
 
-#Categories
+# Deleting items
+
+puts '--Cleaning My staples'
+MyStaple.destroy_all
+puts 'My staples cleaned'
+
+puts '--Cleaning staples'
+Staple.destroy_all
+puts 'Staples cleaned'
 
 puts '--Cleaning categories'
 Category.destroy_all
 puts 'Categories cleaned'
+
+puts '--Cleaning quantities'
+Quantity.destroy_all
+puts 'quantities cleaned'
+
+puts '--Cleaning Users'
+User.destroy_all
+puts 'Users cleaned'
+
+puts '--Cleaning Grocery Lists'
+GroceryList.destroy_all
+puts 'Grocery Lists cleaned'
+
+puts '--Cleaning Groups'
+Group.destroy_all
+puts 'Groups cleaned'
+
+
+#Categories
 
 puts '// Creating categories...'
 fridge = Category.create!(name: 'Fridge')
@@ -17,10 +44,6 @@ puts 'Categories created'
 
 
 # Staples
-
-puts '--Cleaning staples'
-Staple.destroy_all
-puts 'Staples cleaned'
 
 puts '// Creating staples...'
 mustard = Staple.create!(name: 'Mustard', category: fridge)
@@ -35,10 +58,6 @@ puts 'Staples created'
 
 # Quantities
 
-puts '--Cleaning quantities'
-Quantity.destroy_all
-puts 'quantities cleaned'
-
 puts '// Creating quantities...'
 full = Quantity.create!(value: 'Full')
 almost_empty = Quantity.create!(value: 'Almost empty')
@@ -46,18 +65,7 @@ empty = Quantity.create!(value: 'Empty')
 puts "Quantities created"
 
 
-# Destroy Users
-
-puts '--Cleaning Users'
-User.destroy_all
-puts 'Users cleaned'
-
-
 # Groups
-
-puts '--Cleaning Groups'
-Group.destroy_all
-puts 'Groups cleaned'
 
 puts '// Creating Groups...'
 dupond = Group.create!(name: 'Dupond')
@@ -65,7 +73,7 @@ thomas = Group.create!(name: 'Thomas')
 puts "Groups created"
 
 
-# Create Users
+# Users
 
 puts '// Creating Users...'
 emilie_dupond = User.create!(username: 'Emilie-dup', email: 'Emilie@gmail.com', password: 'Emilie123', group: dupond, group_admin: true )
@@ -73,11 +81,8 @@ jean_dupond = User.create!(username: 'Jean-dup', email: 'jean@gmail.com', passwo
 marie_thomas = User.create(username: 'Marie Thomas', email: 'marie@gmail.com', password: 'Marie123', group: thomas, group_admin: true )
 puts "Users created"
 
-# Grocery Lists
 
-puts '--Cleaning Grocery Lists'
-GroceryList.destroy_all
-puts 'Grocery Lists cleaned'
+# Grocery Lists
 
 puts '// Creating Grocery Lists...'
 dupond_list = GroceryList.create!(name: 'Dupond', group: dupond)
@@ -87,12 +92,9 @@ puts "Grocery Lists created"
 
 # My Staples
 
-puts '--Cleaning My Staples'
-MyStaple.destroy_all
-puts 'My staples cleaned'
-
 puts '// Creating My staples...'
 chickpeas_for_dupond = MyStaple.create!(staple: chickpeas, quantity: full, grocery_list: dupond_list)
+quinoa_for_dupond = MyStaple.create!(staple: quinoa, quantity: full, grocery_list: dupond_list)
 mustard_for_dupond = MyStaple.create!(staple: mustard, quantity: almost_empty, grocery_list: dupond_list)
 frozen_berries_for_dupond = MyStaple.create!(staple: frozen_berries, quantity: empty, grocery_list: dupond_list)
 quinoa_for_thomas = MyStaple.create!(staple: quinoa, quantity: full, grocery_list: thomas_list)
