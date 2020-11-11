@@ -3,7 +3,7 @@ class PagesController < ApplicationController
 
   def home
     if user_signed_in?
-      @grocery_list = current_user.group.grocery_lists.first
+      @grocery_list = current_user.group.grocery_list
     end
   end
 end
