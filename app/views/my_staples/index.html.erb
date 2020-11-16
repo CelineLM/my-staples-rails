@@ -2,14 +2,17 @@
 
 <% @my_staples.group_by { |m_s| m_s.staple.category }.each do |category_arr| %>
   <h2><%= category_arr[0].name %></h2>
+  <ul>
     <% category_arr[1].each do |my_staple| %>
-      <p data-quantity="<%=my_staple.quantity.value%>" class="item"><%= my_staple.staple.name %>
+      <li data-quantity="<%=my_staple.quantity.value%>" class="item"><%= my_staple.staple.name %>
       <%= my_staple.quantity.value %>
       <%= link_to my_staple_path(my_staple), method: :delete do %>
         <i class="far fa-trash-alt"></i>
-      <% end %></p>
+      <% end %></li>
     <% end %>
+  </ul>
 <% end %>
+
 
 <h3>Add a staple to your list</h3>
 <%= form_for [@grocery_list, @my_staple] do |f| %>
@@ -20,6 +23,6 @@
   <%= f.submit %>
 <% end %>
 
-<%= link_to "Add a new staple to the library", new_staple_path %>
+<p><%= link_to "Add a new staple to the library", new_staple_path %></p>
 
-<%= link_to "MY GROCERY LIST", grocery_list_path(@grocery_list) %>
+<p><%= link_to "MY GROCERY LIST", grocery_list_path(@grocery_list) %></p>

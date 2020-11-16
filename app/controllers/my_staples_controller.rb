@@ -2,7 +2,7 @@ class MyStaplesController < ApplicationController
   before_action :set_my_staple, only: [:edit, :destroy]
 
   def index
-    @grocery_list = current_user.group.grocery_lists.first
+    @grocery_list = current_user.group.grocery_list
     @my_staples = @grocery_list.my_staples
     @my_staple = MyStaple.new
     authorize @my_staples
@@ -10,7 +10,7 @@ class MyStaplesController < ApplicationController
 
   def create
     @my_staple = MyStaple.new(my_staple_params)
-    @grocery_list = current_user.group.grocery_lists.first
+    @grocery_list = current_user.group.grocery_list
     @my_staple.grocery_list = @grocery_list
     authorize @my_staple
     if @my_staple.save
@@ -21,7 +21,7 @@ class MyStaplesController < ApplicationController
   end
 
   def destroy
-    @grocery_list = current_user.group.grocery_lists.first
+    @grocery_list = current_user.group.grocery_list
     @my_staple.destroy
     redirect_to grocery_list_my_staples_path(@grocery_list)
   end
