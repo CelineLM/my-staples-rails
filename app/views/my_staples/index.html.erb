@@ -4,11 +4,13 @@
   <h2><%= category_arr[0].name %></h2>
   <ul>
     <% category_arr[1].each do |my_staple| %>
-      <li data-quantity="<%=my_staple.quantity.value%>" class="item"><%= my_staple.staple.name %>
-      <%= my_staple.quantity.value %>
-      <%= link_to my_staple_path(my_staple), method: :delete do %>
-        <i class="far fa-trash-alt"></i>
-      <% end %></li>
+      <li data-quantity="<%=my_staple.quantity.value%>" class="item">
+        <%= my_staple.staple.name %>
+        <%= my_staple.quantity.value %>
+        <%= link_to my_staple_path(my_staple), method: :delete do %>
+          <i class="far fa-trash-alt"></i>
+        <% end %>
+      </li>
     <% end %>
   </ul>
 <% end %>

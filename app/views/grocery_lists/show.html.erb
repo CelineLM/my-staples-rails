@@ -17,5 +17,19 @@
 </ul>
 
 <h2>Non-Staples</h2>
+<ul>
+  <% @non_staples.each do |non_staple| %>
+    <li>
+      <%= non_staple.name %>
+      <%= link_to non_staple_path(non_staple), method: :delete do %>
+        <i class="far fa-trash-alt"></i>
+      <% end %></li>
+    </li>
+  <% end %>
+</ul>
+<%= form_for [@grocery_list, @non_staple] do |f| %>
+  <%= f.text_field :name %>
+  <%= f.submit %>
+<% end %>
 
 <p><%= link_to "MY STAPLES", grocery_list_my_staples_path(@grocery_list) %></p>
