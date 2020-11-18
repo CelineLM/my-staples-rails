@@ -3,30 +3,35 @@
 <h2>Staples</h2>
 
 <h3>Almost empty staples</h3>
-<ul>
+
   <% @ms_almost_empty.each do |my_staple| %>
-    <li><%= my_staple.staple.name %></li>
+    <div class="groc-list-item">
+      <input type="checkbox">
+      <p><%= my_staple.staple.name %></p>
+    </div>
   <% end %>
-</ul>
+
 
 <h3>Empty staples</h3>
-<ul>
+
   <% @ms_empty.each do |my_staple| %>
-    <li><%= my_staple.staple.name %></li>
+    <div class="groc-list-item">
+      <input type="checkbox">
+      <p><%= my_staple.staple.name %></p>
+    </div>
   <% end %>
-</ul>
 
 <h2>Non-Staples</h2>
-<ul>
   <% @non_staples.each do |non_staple| %>
-    <li>
-      <%= non_staple.name %>
+    <div class="groc-list-item">
+      <input type="checkbox">
+      <p><%= non_staple.name %></p>
       <%= link_to non_staple_path(non_staple), method: :delete do %>
         <i class="fas fa-times"></i>
-      <% end %></li>
-    </li>
+      <% end %>
+    </div>     
   <% end %>
-</ul>
+
 <%= form_for [@grocery_list, @non_staple] do |f| %>
   <%= f.text_field :name %>
   <%= f.submit %>
