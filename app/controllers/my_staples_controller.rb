@@ -12,16 +12,18 @@ class MyStaplesController < ApplicationController
     @my_staple = MyStaple.new(my_staple_params)
     @my_staple.grocery_list = @grocery_list
     authorize @my_staple
-    if @my_staple.save
-      redirect_to grocery_list_my_staples_path(@grocery_list)
-    else
-      render :new
-    end
+    @my_staple.save
+    redirect_to grocery_list_my_staples_path(@grocery_list)
   end
 
   def update
-    @my_staple.update(my_staple_params)
-    redirect_to grocery_list_my_staples_path(@grocery_list)
+    if params[:my_staple][:quantity_id].empty?
+      @my_staple.update(quantity: Quantity.first)
+      redirect_to grocery_list_path(@grocery_list)
+    else
+      @my_staple.update(my_staple_params)
+      redirect_to grocery_list_my_staples_path(@grocery_list)
+    end
   end
 
   def destroy

@@ -2,23 +2,31 @@
 
 <h2>Staples</h2>
 
-<h3>Almost empty staples</h3>
+<h3>Almost empty</h3>
 
   <% @ms_almost_empty.each do |my_staple| %>
     <div class="groc-list-item">
       <input type="checkbox">
       <p><%= my_staple.staple.name %></p>
     </div>
+    <%= form_for(my_staple) do |f| %>
+      <%= f.hidden_field :quantity_id, value: '' %>
+      <%= f.submit %>
+    <% end %>
   <% end %>
 
 
-<h3>Empty staples</h3>
+<h3>Empty</h3>
 
   <% @ms_empty.each do |my_staple| %>
     <div class="groc-list-item">
       <input type="checkbox">
       <p><%= my_staple.staple.name %></p>
     </div>
+    <%= form_for(my_staple) do |f| %>
+      <%= f.collection_select :quantity_id, Quantity.all, :id, :value %>
+      <%= f.submit %>
+    <% end %>
   <% end %>
 
 <h2>Non-Staples</h2>
