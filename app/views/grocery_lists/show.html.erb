@@ -8,11 +8,13 @@
     <div class="groc-list-item">
       <input type="checkbox">
       <p><%= my_staple.staple.name %></p>
+      <%= form_for(my_staple) do |f| %>
+        <%= f.hidden_field :quantity_id, value: '' %>
+        <%= button_tag( :class => "button-submit") do %>
+          <i class="fas fa-times"></i>
+        <% end %>
+      <% end %>
     </div>
-    <%= form_for(my_staple) do |f| %>
-      <%= f.hidden_field :quantity_id, value: '' %>
-      <%= f.submit %>
-    <% end %>
   <% end %>
 
 
@@ -22,11 +24,13 @@
     <div class="groc-list-item">
       <input type="checkbox">
       <p><%= my_staple.staple.name %></p>
+      <%= form_for(my_staple) do |f| %>
+        <%= f.hidden_field :quantity_id, value: '' %>
+        <%= button_tag( :class => "button-submit") do %>
+          <i class="fas fa-times"></i>
+        <% end %>
+      <% end %>
     </div>
-    <%= form_for(my_staple) do |f| %>
-      <%= f.collection_select :quantity_id, Quantity.all, :id, :value %>
-      <%= f.submit %>
-    <% end %>
   <% end %>
 
 <h2>Non-Staples</h2>

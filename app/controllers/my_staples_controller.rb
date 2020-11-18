@@ -17,10 +17,11 @@ class MyStaplesController < ApplicationController
   end
 
   def update
-    if params[:my_staple][:quantity_id].empty?
+    # update my_staple from two different views:
+    if params[:my_staple][:quantity_id].empty? # grocery_lists#show 
       @my_staple.update(quantity: Quantity.first)
       redirect_to grocery_list_path(@grocery_list)
-    else
+    else # my_staples#index
       @my_staple.update(my_staple_params)
       redirect_to grocery_list_my_staples_path(@grocery_list)
     end
