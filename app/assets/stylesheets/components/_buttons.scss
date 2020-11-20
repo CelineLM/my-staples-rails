@@ -3,18 +3,18 @@
   height: 60px;
   width: 200px;
   border-radius: 5px;
-  border: 2px $green solid;
+  border: 1.5px $camel solid;
   display: flex;
   justify-content: center;
   align-items: center;
 
-  color: $green;
+  color: $camel;
   font-family: $buttons-font;
   letter-spacing: 0.1em;
 
   &:hover {
     text-decoration: none;
-    color: $green;
+    color: $camel;
     background-color: rgba(0, 0, 0, 0.8);
   }
 }
