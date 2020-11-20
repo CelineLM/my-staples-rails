@@ -1,35 +1,38 @@
-<h1>My Staples</h1>
+<div class="wrapper">
 
-<% @my_staples.group_by { |m_s| m_s.staple.category }.each do |category_arr| %>
-  <h2><%= category_arr[0].name %></h2>
-  <ul>
-    <% category_arr[1].each do |my_staple| %>
-      <li data-quantity="<%=my_staple.quantity.value%>" class="item">
-        <%= my_staple.staple.name %>
+  <h1>My Staples</h1>
 
-        <%= link_to my_staple_path(my_staple), method: :delete do %>
-          <i class="fas fa-times"></i>
-        <% end %>
+  <% @my_staples.group_by { |m_s| m_s.staple.category }.each do |category_arr| %>
+    <h2><%= category_arr[0].name %></h2>
+    <ul>
+      <% category_arr[1].each do |my_staple| %>
+        <li data-quantity="<%=my_staple.quantity.value%>" class="item">
+          <%= my_staple.staple.name %>
 
-        <%= form_for(my_staple) do |f| %>
-          <%= f.collection_select :quantity_id, Quantity.all, :id, :value %>
-          <%= f.submit %>
-        <% end %>
-      </li>
-    <% end %>
-  </ul>
-<% end %>
+          <%= link_to my_staple_path(my_staple), method: :delete do %>
+            <i class="fas fa-times"></i>
+          <% end %>
+
+          <%= form_for(my_staple) do |f| %>
+            <%= f.collection_select :quantity_id, Quantity.all, :id, :value %>
+            <%= f.submit %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
 
 
-<h3>Add a staple to your list</h3>
-<%= form_for [@grocery_list, @my_staple] do |f| %>
-  <%= f.label :staple %>
-  <%= f.collection_select :staple_id, Staple.all, :id, :name %>
-  <%= f.label :quantity %>
-  <%= f.collection_select :quantity_id, Quantity.all, :id, :value %>
-  <%= f.submit %>
-<% end %>
+  <h3>Add a staple to your list</h3>
+  <%= form_for [@grocery_list, @my_staple] do |f| %>
+    <%= f.label :staple %>
+    <%= f.collection_select :staple_id, Staple.all, :id, :name %>
+    <%= f.label :quantity %>
+    <%= f.collection_select :quantity_id, Quantity.all, :id, :value %>
+    <%= f.submit %>
+  <% end %>
 
-<p><%= link_to "Add a new staple to the library", new_staple_path %></p>
+  <p><%= link_to "Add a new staple to the library", new_staple_path %></p>
 
-<p><%= link_to "MY GROCERY LIST", grocery_list_path(@grocery_list) %></p>
+  <p><%= link_to "MY GROCERY LIST", grocery_list_path(@grocery_list) %></p>
+</div>
