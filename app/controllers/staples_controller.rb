@@ -8,7 +8,7 @@ class StaplesController < ApplicationController
     @staple = Staple.new(staple_params)
     authorize @staple
     if @staple.save
-      @grocery_list = current_user.group.grocery_lists.first
+      @grocery_list = current_user.group.grocery_list
       redirect_to grocery_list_my_staples_path(@grocery_list)
     else
       render :new

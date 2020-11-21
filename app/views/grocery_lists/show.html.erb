@@ -1,52 +1,54 @@
-<h1>Grocery List</h1>
+<div class="wrapper">
+  <h1>Grocery List</h1>
 
-<h2>Staples</h2>
+  <h2>Staples</h2>
 
-<h3>Almost empty</h3>
+  <h3>Almost empty</h3>
 
-  <% @ms_almost_empty.each do |my_staple| %>
-    <div class="groc-list-item">
-      <input type="checkbox">
-      <p><%= my_staple.staple.name %></p>
-      <%= form_for(my_staple) do |f| %>
-        <%= f.hidden_field :quantity_id, value: '' %>
-        <%= button_tag( :class => "button-submit") do %>
+    <% @ms_almost_empty.each do |my_staple| %>
+      <div class="groc-list-item">
+        <input type="checkbox">
+        <p><%= my_staple.staple.name %></p>
+        <%= form_for(my_staple) do |f| %>
+          <%= f.hidden_field :quantity_id, value: '' %>
+          <%= button_tag( :class => "button-submit") do %>
+            <i class="fas fa-times"></i>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+
+
+  <h3>Empty</h3>
+
+    <% @ms_empty.each do |my_staple| %>
+      <div class="groc-list-item">
+        <input type="checkbox">
+        <p><%= my_staple.staple.name %></p>
+        <%= form_for(my_staple) do |f| %>
+          <%= f.hidden_field :quantity_id, value: '' %>
+          <%= button_tag( :class => "button-submit") do %>
+            <i class="fas fa-times"></i>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+
+  <h2>Non-Staples</h2>
+    <% @non_staples.each do |non_staple| %>
+      <div class="groc-list-item">
+        <input type="checkbox">
+        <p><%= non_staple.name %></p>
+        <%= link_to non_staple_path(non_staple), method: :delete do %>
           <i class="fas fa-times"></i>
         <% end %>
-      <% end %>
-    </div>
+      </div>     
+    <% end %>
+
+  <%= form_for [@grocery_list, @non_staple] do |f| %>
+    <%= f.text_field :name %>
+    <%= f.submit %>
   <% end %>
 
-
-<h3>Empty</h3>
-
-  <% @ms_empty.each do |my_staple| %>
-    <div class="groc-list-item">
-      <input type="checkbox">
-      <p><%= my_staple.staple.name %></p>
-      <%= form_for(my_staple) do |f| %>
-        <%= f.hidden_field :quantity_id, value: '' %>
-        <%= button_tag( :class => "button-submit") do %>
-          <i class="fas fa-times"></i>
-        <% end %>
-      <% end %>
-    </div>
-  <% end %>
-
-<h2>Non-Staples</h2>
-  <% @non_staples.each do |non_staple| %>
-    <div class="groc-list-item">
-      <input type="checkbox">
-      <p><%= non_staple.name %></p>
-      <%= link_to non_staple_path(non_staple), method: :delete do %>
-        <i class="fas fa-times"></i>
-      <% end %>
-    </div>     
-  <% end %>
-
-<%= form_for [@grocery_list, @non_staple] do |f| %>
-  <%= f.text_field :name %>
-  <%= f.submit %>
-<% end %>
-
-<p><%= link_to "MY STAPLES", grocery_list_my_staples_path(@grocery_list) %></p>
+  <p><%= link_to "MY STAPLES", grocery_list_my_staples_path(@grocery_list) %></p>
+</div>

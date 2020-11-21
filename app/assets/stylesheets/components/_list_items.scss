@@ -13,8 +13,10 @@
 .groc-list-item {
   display: flex;
   align-items: center;
+  margin: 5px;
   p {
-    margin : 0;
+    font-family: $lists-font;
+    margin: 0 8px;
   }
 }
 
