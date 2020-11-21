@@ -10,6 +10,15 @@
   color: $red;
 }
 
+.my-staples-list {
+  margin: 10px 0;
+  p {
+    font-family: $lists-font;
+    margin: 0px;
+    font-size: 18px;
+  }
+}
+
 .groc-list-item {
   display: flex;
   align-items: center;

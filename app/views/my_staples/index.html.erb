@@ -4,22 +4,23 @@
 
   <% @my_staples.group_by { |m_s| m_s.staple.category }.each do |category_arr| %>
     <h2><%= category_arr[0].name %></h2>
-    <ul>
+    
       <% category_arr[1].each do |my_staple| %>
-        <li data-quantity="<%=my_staple.quantity.value%>" class="item">
-          <%= my_staple.staple.name %>
+        <div class="my-staples-list">
+          <p data-quantity="<%=my_staple.quantity.value%>" class="item">
+            <%= my_staple.staple.name %>
 
-          <%= link_to my_staple_path(my_staple), method: :delete do %>
-            <i class="fas fa-times"></i>
-          <% end %>
+            <%= link_to my_staple_path(my_staple), method: :delete do %>
+              <i class="fas fa-times"></i>
+            <% end %>
+          </p>
 
           <%= form_for(my_staple) do |f| %>
             <%= f.collection_select :quantity_id, Quantity.all, :id, :value %>
             <%= f.submit %>
-          <% end %>
-        </li>
+          <% end %>  
+        </div>     
       <% end %>
-    </ul>
   <% end %>
 
 
