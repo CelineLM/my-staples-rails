@@ -19,7 +19,7 @@
       </div>
       <%= form_for(my_staple) do |f| %>
         <%= f.hidden_field :quantity_id, value: '' %>
-        <%= button_tag( :class => "button-submit") do %>
+        <%= button_tag( :class => "button-update-cross") do %>
           <i class="fas fa-times"></i>
         <% end %>
       <% end %>
@@ -38,7 +38,7 @@
         </div>
         <%= form_for(my_staple) do |f| %>
           <%= f.hidden_field :quantity_id, value: '' %>
-          <%= button_tag( :class => "button-submit") do %>
+          <%= button_tag( :class => "button-update-cross") do %>
             <i class="fas fa-times"></i>
           <% end %>
         <% end %>
@@ -64,9 +64,15 @@
     <% end %>
   </div>
 
-  <%= form_for [@grocery_list, @non_staple] do |f| %>
-    <%= f.text_field :name %>
-    <%= f.submit %>
-  <% end %>
+  <div class="around-add-form">
+    <%= form_for [@grocery_list, @non_staple] do |f| %>
+      <div class="single-line-form">
+        <%= f.text_field :name, class: "form-text-field" %>
+        <%= button_tag( :class => "button-add-plus") do %>
+          <i class="fas fa-plus-circle"></i>
+        <% end %>     
+      </div> 
+    <% end %>
+  </div>
 
-  <p><%= link_to "MY STAPLES", grocery_list_my_staples_path(@grocery_list) %></p>
+  <%= link_to "MY STAPLES", grocery_list_my_staples_path(@grocery_list), class: "main-button" %>

@@ -19,7 +19,7 @@
   }
 }
 
-.button-submit {
+.button-update-cross {
   border: none;
   padding: 0;
   color: $dark-green;
@@ -32,4 +32,12 @@
   i {
     color: $dark-green;
   }
+}
+
+.button-add-plus {
+  border: none;
+  background-color: $body-bg;
+  color: $green;
+  font-size: 28px;
+  padding: 0;
 }
