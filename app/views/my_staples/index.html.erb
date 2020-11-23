@@ -1,6 +1,11 @@
-<div class="wrapper">
+<div class="page-title page-title-ms">
+  <%= link_to root_path do %>
+    <i class="fas fa-arrow-left"></i>
+  <% end %>
+  <h1>My staples</h1>
+</div>
 
-  <h1>My Staples</h1>
+<div class="wrapper">
 
   <% @my_staples.group_by { |m_s| m_s.staple.category }.each do |category_arr| %>
     <h2><%= category_arr[0].name %></h2>
