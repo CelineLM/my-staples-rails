@@ -1,3 +1,8 @@
+.around-logo {
+  height: 80px;
+  padding-top: 20px;
+}
+
 .around-btn {
   display: flex;
   flex-direction: column;
@@ -12,5 +17,6 @@
 }
 
 .around-add-form {
-  margin: 0 20px 10px 10px;
+  padding: 0 20px 10px 10px;
+  border-bottom: 2px $grey solid;
 }

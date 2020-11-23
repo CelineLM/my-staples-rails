@@ -1,21 +1,24 @@
 
 <div class="bg-image-hp">
   <div class="wrapper">
-    <div class="around-btn">
-      <% if user_signed_in? %>
-        <div>
-          <%= link_to "MY STAPLES LIST", grocery_list_my_staples_path(@grocery_list), class: "main-button" %>
-        </div>
-        <div>
-          <%= link_to "MY GROCERY LIST", grocery_list_path(@grocery_list), class: "main-button" %>
-        </div>
-        <div>
-          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "main-button" %>
-        </div> 
-      <% else %>
-        <%= link_to "Login", new_user_session_path, class: "main-button" %>
-        <%= link_to "Sign up", new_user_registration_path, class: "main-button" %>
-      <% end %>
+    <div class="around-logo">
+      <p class="logo">My Staples</p>
     </div>
+      <div class="around-btn">
+        <% if user_signed_in? %>
+          <div>
+            <%= link_to "MY STAPLES LIST", grocery_list_my_staples_path(@grocery_list), class: "main-button blue-btn" %>
+          </div>
+          <div>
+            <%= link_to "MY GROCERY LIST", grocery_list_path(@grocery_list), class: "main-button green-btn" %>
+          </div>
+          <div>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "main-button brown-btn" %>
+          </div> 
+        <% else %>
+          <%= link_to "Login", new_user_session_path, class: "main-button brown-btn" %>
+          <%= link_to "Sign up", new_user_registration_path, class: "main-button brown-btn" %>
+        <% end %>
+      </div>
   </div>
 </div>

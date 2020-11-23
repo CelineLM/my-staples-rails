@@ -8,7 +8,7 @@
 <div class="wrapper">
 
   <% @my_staples.group_by { |m_s| m_s.staple.category }.each do |category_arr| %>
-    <h2><%= category_arr[0].name %></h2>
+    <h2 class="h2-ms"><%= category_arr[0].name %></h2>
     
       <% category_arr[1].each do |my_staple| %>
         <div class="my-staples-list">

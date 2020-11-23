@@ -5,7 +5,7 @@
   height: 40px;
   padding-left: 10px;
   i {
-    color: $light-blue;
+    color: $body-bg;
     margin-right: 20px;
   }
 }
@@ -21,7 +21,7 @@
 h1 {
   font-size: 18px;
   font-weight: 500;
-  color: $light-blue;
+  color: $body-bg;
   margin: 0;
 }
 
@@ -33,6 +33,11 @@ h2 {
 
 .h2-gl {
   background-color: $light-green;
+  border-bottom: 1px $light-gray solid ;
+}
+
+.h2-ms {
+  background-color: $light-blue;
   border-bottom: 1px $light-gray solid ;
 }
 
