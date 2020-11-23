@@ -21,19 +21,22 @@
 
 .groc-list-item {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  margin: 5px;
+  padding: 10px 0 10px 10px;
+  border-bottom: 2px $light-gray solid;
+  height: 40px;
+  background-color: white;
+}
+
+.groc-list-item-left {
+  display: flex;
   p {
     font-family: $lists-font;
-    margin: 0 8px;
+    margin: 3px 0 0 15px;
   }
 }
 
 input:checked + p {
   text-decoration: line-through;
-}
-
-.button-submit {
-  border: none;
-  background-color: $body-bg;
 }

@@ -6,32 +6,36 @@
   <h1>My grocery List</h1>
 </div>
 
-<div class="wrapper">
-
   <h2>Staples</h2>
 
   <h3>Almost empty</h3>
 
+  <div class="groc-list-around">
     <% @ms_almost_empty.each do |my_staple| %>
       <div class="groc-list-item">
+      <div class="groc-list-item-left">
         <input type="checkbox">
-        <p><%= my_staple.staple.name %></p>
-        <%= form_for(my_staple) do |f| %>
-          <%= f.hidden_field :quantity_id, value: '' %>
-          <%= button_tag( :class => "button-submit") do %>
-            <i class="fas fa-times"></i>
-          <% end %>
+        <p><%= my_staple.staple.name %></p>       
+      </div>
+      <%= form_for(my_staple) do |f| %>
+        <%= f.hidden_field :quantity_id, value: '' %>
+        <%= button_tag( :class => "button-submit") do %>
+          <i class="fas fa-times"></i>
         <% end %>
+      <% end %>
       </div>
     <% end %>
-
+  </div>
 
   <h3>Empty</h3>
 
+  <div class="groc-list-around">
     <% @ms_empty.each do |my_staple| %>
       <div class="groc-list-item">
-        <input type="checkbox">
-        <p><%= my_staple.staple.name %></p>
+        <div class="groc-list-item-left">
+          <input type="checkbox">
+          <p><%= my_staple.staple.name %></p>
+        </div>
         <%= form_for(my_staple) do |f| %>
           <%= f.hidden_field :quantity_id, value: '' %>
           <%= button_tag( :class => "button-submit") do %>
@@ -40,17 +44,25 @@
         <% end %>
       </div>
     <% end %>
+  </div>
 
   <h2>Non-Staples</h2>
+
+  <div class="groc-list-around">
     <% @non_staples.each do |non_staple| %>
       <div class="groc-list-item">
-        <input type="checkbox">
-        <p><%= non_staple.name %></p>
-        <%= link_to non_staple_path(non_staple), method: :delete do %>
-          <i class="fas fa-times"></i>
-        <% end %>
+        <div class="groc-list-item-left">
+          <input type="checkbox">
+          <p><%= non_staple.name %></p>
+        </div>
+        <div class="delete-cross-btn">
+          <%= link_to non_staple_path(non_staple), method: :delete do %>
+            <i class="fas fa-times"></i>
+          <% end %>
+        </div>
       </div>     
     <% end %>
+  </div>
 
   <%= form_for [@grocery_list, @non_staple] do |f| %>
     <%= f.text_field :name %>
@@ -58,4 +70,3 @@
   <% end %>
 
   <p><%= link_to "MY STAPLES", grocery_list_my_staples_path(@grocery_list) %></p>
-</div>

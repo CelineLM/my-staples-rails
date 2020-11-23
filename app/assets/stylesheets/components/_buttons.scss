@@ -18,3 +18,18 @@
     background-color: rgba(0, 0, 0, 0.8);
   }
 }
+
+.button-submit {
+  border: none;
+  padding: 0;
+  color: $dark-green;
+  background-color: white;
+  margin-right: 20px;
+}
+
+.delete-cross-btn {
+  margin-right: 20px;
+  i {
+    color: $dark-green;
+  }
+}

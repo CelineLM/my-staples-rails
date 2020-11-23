@@ -10,14 +10,6 @@
   margin: 0 auto;
 }
 
-.around-btn {
-  display: flex;
-  flex-direction: column;
-  height: 430px;
-  justify-content: space-around;
-  align-items: center;
-}
-
 @media(min-width: 320px) {
   .wrapper {
     width: 310px;

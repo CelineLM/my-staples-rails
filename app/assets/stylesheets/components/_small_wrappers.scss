@@ -1,0 +1,13 @@
+.around-btn {
+  display: flex;
+  flex-direction: column;
+  height: 430px;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.groc-list-around {
+  border-top: 3px $light-gray solid;
+  border-bottom: 3px $light-gray solid;
+}
+
