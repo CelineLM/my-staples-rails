@@ -12,8 +12,12 @@
 
 .my-staples-list {
   margin: 10px 0;
+}
+
+.my-staples-list-item {
+  display: flex;
+  
   p {
-    font-family: $lists-font;
     margin: 0px;
     font-size: 18px;
   }
