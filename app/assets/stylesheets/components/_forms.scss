@@ -17,3 +17,21 @@
   border-radius: 2px;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
+
+.update-qty-form-container {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  i {
+    color: $blue;
+    font-size: 24px;
+    margin-left: 10px;
+  }
+}
+
+.add-my-staple-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

@@ -10,6 +10,7 @@
     <div class="list-around">
       <% category_arr[1].each do |my_staple| %>
       <div>
+
         <div data-quantity="<%=my_staple.quantity.value%>" class="my-staples-list item">
           <p><%= my_staple.staple.name %></p>
           <div class="my-staple-list-right">
@@ -22,26 +23,41 @@
             </div>
           </div>
         </div>
+
         <div class="collapse" id="ms<%=my_staple.id%>">
-            <%= form_for(my_staple) do |f| %>
-              <%= f.collection_select :quantity_id, Quantity.all, :id, :value %>
-              <%= f.submit %>
-            <% end %>
+          <%= form_for(my_staple) do |f| %>
+            <div class="update-qty-form-container">
+              <%= f.collection_select :quantity_id, Quantity.all, :id, :value %>              
+              <%= button_tag( :class => "button-update-check") do %>
+                <i class="fas fa-check-circle"></i>
+              <% end %>
+            </div>
+          <% end %>            
         </div>
+
       </div>     
     <% end %>
     </div>
   <% end %>
 
-
-  <h3>Add a staple to your list</h3>
-  <%= form_for [@grocery_list, @my_staple] do |f| %>
-    <%= f.label :staple %>
-    <%= f.collection_select :staple_id, Staple.all, :id, :name %>
-    <%= f.label :quantity %>
-    <%= f.collection_select :quantity_id, Quantity.all, :id, :value %>
-    <%= f.submit %>
-  <% end %>
+  <div class="around-add-mystaple-form">
+    <h3 class='h3-ms'>Add a staple to your list</h3>
+    <%= form_for [@grocery_list, @my_staple] do |f| %>
+    <div class="add-my-staple-form">
+      <div class="add-mystaple-form-item">
+        <%= f.label :staple, 'Staple name' %>
+        <%= f.collection_select :staple_id, Staple.all, :id, :name %>
+      </div>
+      <div class="add-mystaple-form-item">
+        <%= f.label :quantity, 'Quantity left' %>
+        <%= f.collection_select :quantity_id, Quantity.all, :id, :value %>
+      </div>
+      <%= button_tag( :class => "button-add-plus-blue") do %>
+        <i class="fas fa-plus-circle"></i>
+      <% end %>  
+    </div>
+    <% end %>
+  </div>
 
   <p><%= link_to "Add to the library", new_staple_path, class: "small-button purple-btn" %></p>
 

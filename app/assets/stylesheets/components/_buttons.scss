@@ -60,7 +60,7 @@
 .triangle-icon {
   i {
     font-size: 30px;
-    color: $blue;
+    color: $body-color;
   }
 }
 
@@ -68,6 +68,12 @@
   i {
     color: $dark-blue;
   }
+}
+
+.button-update-check {
+  border: none;
+  padding: 0;
+  background-color: $body-bg;
 }
 
 .button-update-cross {
@@ -87,6 +93,14 @@
   border: none;
   background-color: $body-bg;
   color: $green;
+  font-size: 28px;
+  padding: 0;
+}
+
+.button-add-plus-blue {
+  border: none;
+  background-color: $body-bg;
+  color: $blue;
   font-size: 28px;
   padding: 0;
 }
