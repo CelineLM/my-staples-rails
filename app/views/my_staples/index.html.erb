@@ -10,7 +10,7 @@
     
     <% category_arr[1].each do |my_staple| %>
       <div class="my-staples-list">
-        <div data-quantity="<%=my_staple.quantity.value%>" class="my-staple-list-item item">
+        <div data-quantity="<%=my_staple.quantity.value%>" class="my-staples-list-item item">
           <p><%= my_staple.staple.name %></p>
 
           <%= link_to my_staple_path(my_staple), method: :delete do %>
@@ -18,13 +18,13 @@
           <% end %>
 
           <a data-toggle="collapse" href="#ms<%=my_staple.id%>" role="button" aria-expanded="false"><i class="fas fa-caret-down"></i></a> 
-          <div class="collapse" id="ms<%=my_staple.id%>">
-            <div>
-              <%= form_for(my_staple) do |f| %>
-                <%= f.collection_select :quantity_id, Quantity.all, :id, :value %>
-                <%= f.submit %>
-              <% end %>            
-            </div>
+        </div>
+        <div class="collapse" id="ms<%=my_staple.id%>">
+          <div>
+            <%= form_for(my_staple) do |f| %>
+              <%= f.collection_select :quantity_id, Quantity.all, :id, :value %>
+              <%= f.submit %>
+            <% end %>            
           </div>
         </div>
       </div>     
@@ -41,6 +41,6 @@
     <%= f.submit %>
   <% end %>
 
-  <p><%= link_to "Add a new staple to the library", new_staple_path %></p>
+  <p><%= link_to "Add to the library", new_staple_path, class: "small-button purple-btn" %></p>
 
   <%= link_to "MY GROCERY LIST", grocery_list_path(@grocery_list),  class: "small-button green-btn" %>

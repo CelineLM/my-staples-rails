@@ -1,4 +1,9 @@
-<h1>Make a new staple</h1>
+<div class="page-title page-title-ns">
+  <%= link_to grocery_list_my_staples_path(@grocery_list) do %>
+    <i class="fas fa-arrow-left"></i>
+  <% end %>
+  <h1>Add a new staple to the library</h1>
+</div>
 
 <%= form_for(@staple) do |f| %>
   <%= f.label :category %>

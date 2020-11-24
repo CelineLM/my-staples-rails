@@ -18,6 +18,13 @@
   background-color: $green;
 }
 
+.page-title-ns {
+  background-color: $purple;
+  h1 {
+    font-size: 16px;
+  }
+}
+
 h1 {
   font-size: 18px;
   font-weight: 500;
