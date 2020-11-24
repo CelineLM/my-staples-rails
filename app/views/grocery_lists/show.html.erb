@@ -10,7 +10,7 @@
 
   <h3>Almost empty</h3>
 
-  <div class="groc-list-around">
+  <div class="list-around">
     <% @ms_almost_empty.each do |my_staple| %>
       <div class="groc-list-item">
       <div class="groc-list-item-left">
@@ -29,7 +29,7 @@
 
   <h3>Empty</h3>
 
-  <div class="groc-list-around">
+  <div class="list-around">
     <% @ms_empty.each do |my_staple| %>
       <div class="groc-list-item">
         <div class="groc-list-item-left">
@@ -48,14 +48,14 @@
 
   <h2 class="h2-gl">Non-Staples</h2>
 
-  <div class="groc-list-around">
+  <div class="list-around">
     <% @non_staples.each do |non_staple| %>
       <div class="groc-list-item">
         <div class="groc-list-item-left">
           <input type="checkbox">
           <p><%= non_staple.name %></p>
         </div>
-        <div class="delete-cross-btn">
+        <div class="delete-cross-btn-green">
           <%= link_to non_staple_path(non_staple), method: :delete do %>
             <i class="fas fa-times"></i>
           <% end %>

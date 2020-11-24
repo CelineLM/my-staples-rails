@@ -11,23 +11,30 @@
 }
 
 .my-staples-list {
-  margin: 10px 0;
-}
-
-.my-staples-list-item {
+  height: 40px;
+  padding: 10px 20px 10px 15px;
+  border-bottom: 2px $light-gray solid;
+  background-color: white;
   display: flex;
-
+  justify-content: space-between;
   p {
     margin: 0px;
-    font-size: 18px;
+    font-size: 16px;
   }
+}
+
+.my-staple-list-right {
+  width: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .groc-list-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 0 10px 10px;
+  padding: 10px 20px 10px 10px;
   border-bottom: 2px $light-gray solid;
   height: 40px;
   background-color: white;

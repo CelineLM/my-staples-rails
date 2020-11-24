@@ -57,16 +57,27 @@
   background-color: $purple;
 }
 
+.triangle-icon {
+  i {
+    font-size: 30px;
+    color: $blue;
+  }
+}
+
+.delete-cross-btn-blue {
+  i {
+    color: $dark-blue;
+  }
+}
+
 .button-update-cross {
   border: none;
   padding: 0;
   color: $dark-green;
   background-color: white;
-  margin-right: 20px;
 }
 
-.delete-cross-btn {
-  margin-right: 20px;
+.delete-cross-btn-green {
   i {
     color: $dark-green;
   }
