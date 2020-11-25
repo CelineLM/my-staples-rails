@@ -5,10 +5,20 @@
   <h1>Add a new staple to the library</h1>
 </div>
 
-<%= form_for(@staple) do |f| %>
-  <%= f.label :category %>
-  <%= f.collection_select :category_id, Category.all, :id, :name %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.submit %>
-<% end %>
+<div class="around-new-staple-form">
+  <%= form_for(@staple) do |f| %>
+    <div class="new-staple-form">
+      <div class="new-staple-form-item">
+        <%= f.label :category %>
+        <%= f.collection_select :category_id, Category.all, :id, :name %>
+      </div>
+      <div class="new-staple-form-item">
+        <%= f.label :name, 'Staple name' %>
+        <%= f.text_field :name %>
+      </div>
+      <%= button_tag( :class => "button-add-plus b-a-p-purple") do %>
+        <i class="fas fa-plus-circle"></i>
+      <% end %>  
+    </div>
+  <% end %>
+</div>

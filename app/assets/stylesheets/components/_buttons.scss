@@ -92,15 +92,18 @@
 .button-add-plus {
   border: none;
   background-color: $body-bg;
-  color: $green;
   font-size: 28px;
   padding: 0;
 }
 
-.button-add-plus-blue {
-  border: none;
-  background-color: $body-bg;
+.b-a-p-green {
+  color: $green;
+}
+
+.b-a-p-blue {
   color: $blue;
-  font-size: 28px;
-  padding: 0;
+}
+
+.b-a-p-purple {
+  color: $purple;
 }
