@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :staples, only: [:new, :create]
-  resources :groups, only: [:new, :create, :edit, :update] do
-    resources :grocery_lists, only: [:new, :create]
-  end
+  # resources :groups, only: [:new, :create] do
+  #   resources :grocery_lists, only: [:new, :create]
+  # end
   resources :grocery_lists, only: [:show] do
       resources :non_staples, only: [:create]
       resources :my_staples, only: [:index, :create]
