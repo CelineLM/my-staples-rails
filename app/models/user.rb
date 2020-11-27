@@ -12,6 +12,6 @@ class User < ApplicationRecord
 
   def set_defaults
     self.group_admin = false
-    self.group_id = nil
+    # self.group_id = nil
   end
 end
