@@ -76,9 +76,9 @@ puts "Groups created"
 # Users
 
 puts '// Creating Users...'
-emilie_dupond = User.create!(username: 'Emilie-dup', email: 'Emilie@gmail.com', password: 'Emilie123', group: dupond, group_admin: true )
-jean_dupond = User.create!(username: 'Jean-dup', email: 'jean@gmail.com', password: 'Jean123', group: dupond, group_admin: false )
-marie_thomas = User.create(username: 'Marie Thomas', email: 'marie@gmail.com', password: 'Marie123', group: thomas, group_admin: true )
+emilie_dupond = User.create!(username: 'Emilie-dup', email: 'Emilie@gmail.com', password: 'Emilie123', group: dupond )
+jean_dupond = User.create!(username: 'Jean-dup', email: 'jean@gmail.com', password: 'Jean123', group: dupond )
+marie_thomas = User.create(username: 'Marie Thomas', email: 'marie@gmail.com', password: 'Marie123', group: thomas )
 puts "Users created"
 
 
