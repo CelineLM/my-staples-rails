@@ -67,26 +67,26 @@ puts "Quantities created"
 
 # Groups
 
-puts '// Creating Groups...'
-dupond = Group.create!(name: 'Dupond')
-thomas = Group.create!(name: 'Thomas')
-puts "Groups created"
+# puts '// Creating Groups...'
+# dupond = Group.create!
+# thomas = Group.create!
+# puts "Groups created"
 
 
 # Users
 
 puts '// Creating Users...'
-emilie_dupond = User.create!(username: 'Emilie-dup', email: 'Emilie@gmail.com', password: 'Emilie123', group: dupond, group_admin: true )
-jean_dupond = User.create!(username: 'Jean-dup', email: 'jean@gmail.com', password: 'Jean123', group: dupond, group_admin: false )
-marie_thomas = User.create(username: 'Marie Thomas', email: 'marie@gmail.com', password: 'Marie123', group: thomas, group_admin: true )
+emilie_dupond = User.create!(username: 'Emilie-dup', email: 'Emilie@gmail.com', password: 'Emilie123', group: Group.create, group_admin: true )
+# jean_dupond = User.create!(username: 'Jean-dup', email: 'jean@gmail.com', password: 'Jean123', group: Group.create, group_admin: true )
+marie_thomas = User.create(username: 'Marie Thomas', email: 'marie@gmail.com', password: 'Marie123', group: Group.create, group_admin: true )
 puts "Users created"
 
 
 # Grocery Lists
 
 puts '// Creating Grocery Lists...'
-dupond_list = GroceryList.create!(name: 'Dupond', group: dupond)
-thomas_list = GroceryList.create!(name: 'Thomas', group: thomas)
+dupond_list = GroceryList.create!(group: emilie_dupond.group)
+thomas_list = GroceryList.create!(group: marie_thomas.group)
 puts "Grocery Lists created"
 
 
