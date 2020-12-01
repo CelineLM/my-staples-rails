@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'User signs up without a group' do
+feature 'User signs up' do
   scenario 'successfully' do
     visit root_path
     click_on 'Sign up'
@@ -8,11 +8,7 @@ feature 'User signs up without a group' do
     fill_in 'Username', with: 'Someone'
     fill_in 'Password', with: 'Password123'
     click_on 'Sign up'
-    click_on 'Wait to be added to a group'
 
-    expect(page).not_to have_content 'MY STAPLES LIST'
-    expect(page).not_to have_content 'Sign up'
-    expect(page).to have_content 'Wait for your home group to add you'
-    expect(page).to have_content 'Create a new group'
+    expect(page).to have_content 'MY STAPLES LIST'
   end
 end
