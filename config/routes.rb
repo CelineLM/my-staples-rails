@@ -8,7 +8,7 @@ Rails.application.routes.draw do
       resources :non_staples, only: [:create]
       resources :my_staples, only: [:index, :create]
   end
-  
+  resources :groups, only: [:show]
   resources :my_staples, only: [:update,:destroy]
   resources :non_staples, only: [:destroy]
 end

@@ -1,7 +1,8 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-  def create   
+  def create
+    raise
     @group = Group.create
-    @grocery_list = GroceryList.create!(group: @group)
+    @grocery_list = GroceryList.create(group: @group)
     build_resource(sign_up_params)
     resource.group = @group
     resource.save
