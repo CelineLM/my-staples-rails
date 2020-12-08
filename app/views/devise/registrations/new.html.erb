@@ -1,4 +1,9 @@
-<h2>Sign up</h2>
+<div class="page-title page-title-brown">
+  <%= link_to root_path do %>
+    <i class="fas fa-arrow-left"></i>
+  <% end %>
+  <h1>Sign up</h1>
+</div>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
