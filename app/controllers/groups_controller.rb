@@ -10,6 +10,6 @@ class GroupsController < ApplicationController
   def generate_url(params = {})
     uri = URI('http://localhost:3000/users/sign_up')
     uri.query = params.to_query
-    uri.to_s
+    uri
   end
 end
